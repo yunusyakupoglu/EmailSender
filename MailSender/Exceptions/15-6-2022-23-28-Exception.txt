@@ -1,0 +1,13 @@
+-----------------------------------------------------------------------------
+Date : 15.06.2022 23:28:44
+
+MailKit.Security.AuthenticationException
+Message : 535: 5.7.139 Authentication unsuccessful, the user credentials were incorrect. [FR0P281CA0055.DEUP281.PROD.OUTLOOK.COM]
+StackTrace :    at MailKit.Net.Smtp.SmtpClient.AuthenticateAsync(Encoding encoding, ICredentials credentials, Boolean doAsync, CancellationToken cancellationToken)
+   at MailKit.Net.Smtp.SmtpClient.Authenticate(Encoding encoding, ICredentials credentials, CancellationToken cancellationToken)
+   at MailKit.MailService.Authenticate(Encoding encoding, String userName, String password, CancellationToken cancellationToken)
+   at MailKit.MailService.Authenticate(String userName, String password, CancellationToken cancellationToken)
+   at MailSender.Services.MailService.SendMail(List`1 getExchangeData, MailViewModel mails) in C:\Users\yunus\source\repos\EmailSender\MailSender\Services\MailService.cs:line 59
+MailKit.Net.Smtp.SmtpCommandException
+Message : 5.7.139 Authentication unsuccessful, the user credentials were incorrect. [FR0P281CA0055.DEUP281.PROD.OUTLOOK.COM]
+StackTrace : 
