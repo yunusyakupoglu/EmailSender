@@ -1,0 +1,10 @@
+-----------------------------------------------------------------------------
+Date : 21.06.2022 13:25:22
+
+System.IO.IOException
+Message : The process cannot access the file 'C:\Users\yunus\source\repos\EmailSender\MailSender\MailData\mailList.xlsx' because it is being used by another process.
+StackTrace :    at System.IO.FileStream.ValidateFileHandle(SafeFileHandle fileHandle)
+   at System.IO.FileStream.CreateFileOpenHandle(FileMode mode, FileShare share, FileOptions options)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access)
+   at MailSender.Services.ExcelService.ReadExcelFile() in C:\Users\yunus\source\repos\EmailSender\MailSender\Services\ExcelService.cs:line 36

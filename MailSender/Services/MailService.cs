@@ -41,8 +41,12 @@ namespace MailSender.Services
                     builder.HtmlBody = SourceReader.ReadToEnd();
 
                 }
-                builder.HtmlBody = builder.HtmlBody.Replace("{Gun}", CurrentDate).Replace("{DollarBuyingPrice}", getExchangeData.DollarBuyingPrice).Replace("{DollarSellingPrice}", getExchangeData.DollarSellingPrice)
-                    .Replace("{EuroBuyingPrice}", getExchangeData.EuroBuyingPrice).Replace("{EuroSellingPrice}", getExchangeData.EuroSellingPrice).Replace("{ExchangeRate}", getExchangeData.ExchangeRate);
+                builder.HtmlBody = builder.HtmlBody.Replace("{Gun}", CurrentDate)
+                    .Replace("{DollarBuyingPrice}", getExchangeData.DollarBuyingPrice)
+                    .Replace("{DollarSellingPrice}", getExchangeData.DollarSellingPrice)
+                    .Replace("{EuroBuyingPrice}", getExchangeData.EuroBuyingPrice)
+                    .Replace("{EuroSellingPrice}", getExchangeData.EuroSellingPrice)
+                    .Replace("{ExchangeRate}", getExchangeData.ExchangeRate);
 
 
                 string host = this.Configuration.GetValue<string>("Smtp:Server");
@@ -63,7 +67,7 @@ namespace MailSender.Services
 
                 // send email
                 using var smtp = new SmtpClient();
-                smtp.Connect(host, port, SecureSocketOptions.StartTls);
+                smtp.Connect(host, port, SecureSocketOptions.Auto);
                 //TODO: validations authenticate oldu mu, gönderildi mi
                 smtp.Authenticate(userName, password);
                 smtp.Send(email);

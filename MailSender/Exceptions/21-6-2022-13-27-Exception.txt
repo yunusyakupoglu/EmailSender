@@ -1,0 +1,13 @@
+-----------------------------------------------------------------------------
+Date : 21.06.2022 13:27:12
+
+MailKit.Net.Smtp.SmtpCommandException
+Message : 5.1.1 <edasolmaz@metroyapi.com.tr>: Recipient address rejected: User unknown in local recipient table
+StackTrace :    at MailKit.Net.Smtp.SmtpClient.OnRecipientNotAccepted(MimeMessage message, MailboxAddress mailbox, SmtpResponse response)
+   at MailKit.Net.Smtp.SmtpClient.ProcessRcptToResponse(MimeMessage message, MailboxAddress mailbox, SmtpResponse response)
+   at MailKit.Net.Smtp.SmtpClient.FlushCommandQueueAsync(MimeMessage message, MailboxAddress sender, IList`1 recipients, Boolean doAsync, CancellationToken cancellationToken)
+   at MailKit.Net.Smtp.SmtpClient.SendAsync(FormatOptions options, MimeMessage message, MailboxAddress sender, IList`1 recipients, Boolean doAsync, CancellationToken cancellationToken, ITransferProgress progress)
+   at MailKit.Net.Smtp.SmtpClient.SendAsync(FormatOptions options, MimeMessage message, MailboxAddress sender, IList`1 recipients, Boolean doAsync, CancellationToken cancellationToken, ITransferProgress progress)
+   at MailKit.Net.Smtp.SmtpClient.Send(FormatOptions options, MimeMessage message, CancellationToken cancellationToken, ITransferProgress progress)
+   at MailKit.MailTransport.Send(MimeMessage message, CancellationToken cancellationToken, ITransferProgress progress)
+   at MailSender.Services.MailService.SendMail(ExchangeViewModel getExchangeData, MailViewModel mails) in C:\Users\yunus\source\repos\EmailSender\MailSender\Services\MailService.cs:line 73

@@ -19,7 +19,7 @@ namespace MailSender
             Host.CreateDefaultBuilder(args)
             .UseWindowsService(opt =>
             {
-                opt.ServiceName = "MailSender";
+                opt.ServiceName = "MailSenderService";
             })
                 .ConfigureServices((hostContext, services) =>
                 {

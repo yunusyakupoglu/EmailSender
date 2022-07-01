@@ -37,7 +37,7 @@ namespace MailSender.Services
 
                 exchangeViewModel.DollarBuyingPrice = xmlData.SelectSingleNode(string.Format("Tarih_Date/Currency[@Kod='{0}']/ForexBuying", "USD")).InnerText.Replace('.', ',');
                 exchangeViewModel.EuroBuyingPrice = xmlData.SelectSingleNode(string.Format("Tarih_Date/Currency[@Kod='{0}']/ForexBuying", "EUR")).InnerText.Replace('.', ',');
-                exchangeViewModel.ExchangeRate = (decimal.Parse(exchangeViewModel.DollarBuyingPrice) / decimal.Parse(exchangeViewModel.EuroBuyingPrice)).ToString();
+                exchangeViewModel.ExchangeRate = String.Format("{0:0.0000}", (decimal.Parse(exchangeViewModel.EuroSellingPrice) / decimal.Parse(exchangeViewModel.DollarSellingPrice)));
                 return Task.FromResult(exchangeViewModel);
             }
             catch (Exception ex)
