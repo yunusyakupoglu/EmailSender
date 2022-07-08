@@ -1,8 +1,0 @@
------------------------------------------------------------------------------
-Date : 21.06.2022 12:53:35
-
-System.NotSupportedException
-Message : The SMTP server does not support the STARTTLS extension.
-StackTrace :    at MailKit.Net.Smtp.SmtpClient.ConnectAsync(String host, Int32 port, SecureSocketOptions options, Boolean doAsync, CancellationToken cancellationToken)
-   at MailKit.Net.Smtp.SmtpClient.Connect(String host, Int32 port, SecureSocketOptions options, CancellationToken cancellationToken)
-   at MailSender.Services.MailService.SendMail(ExchangeViewModel getExchangeData, MailViewModel mails) in C:\Users\yunus\source\repos\EmailSender\MailSender\Services\MailService.cs:line 70

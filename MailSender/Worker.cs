@@ -42,23 +42,45 @@ namespace MailSender
         {
             while (!stoppingToken.IsCancellationRequested)
             {
-                _logger.LogInformation(
-             "Application started.");
-                var liste = await _exchangeService.GetExchangeDataAsync();
+                _logger.LogInformation("Application started.");
+
+                var sendMailResponse = false;
+                bool isTimeCorrect = false;
+                var SuccessfulDate = TimeSpan.FromMinutes(10);
+                var RetryDate = TimeSpan.FromSeconds(5);
+
+                // Check if datetime is 7am
+                if (DateTime.Now.Hour == 7)
+                    isTimeCorrect = true;
+                if (!isTimeCorrect)
+                {
+                    await Task.Delay(SuccessfulDate);
+                    break;
+                }
+                var datalist = await _exchangeService.GetExchangeDataAsync();
                 //TODO: liste kontrolu
                 var mailListResponse = await _excelService.ReadExcelFile();
                 if (!mailListResponse.IsOk)
                     Console.WriteLine(mailListResponse.ErrorMessage);
-               
-                var sendMailResponse = await _mailService.SendMail(liste,mailListResponse);
-                    if (sendMailResponse)
-                        await Task.Delay(TimeSpan.FromDays(1));  //TODO : Timespan 1 gün olacak
-                    else
-                        await Task.Delay(TimeSpan.FromMinutes(5)); // 5 dakika sonra tekrar dene
-              
-                   
-            }
 
+
+                
+                if(isTimeCorrect)
+                     sendMailResponse = await _mailService.SendMail(datalist, mailListResponse);
+
+                if (sendMailResponse)
+                {
+                    _logger.LogInformation("Posta gönderildi");
+                    await Task.Delay(SuccessfulDate);  //TODO : Timespan 10 dk olacak
+                }
+                else
+                {
+                    await Task.Delay(RetryDate); // baþarýsýzsa 25 saniye sonra tekrar dene 
+                    _logger.LogInformation("Posta gönderilemedi, 25 saniye sonra tekrar denenecek");
+                }
+
+
+            }
         }
 
         public override async Task StopAsync(CancellationToken stoppingToken)

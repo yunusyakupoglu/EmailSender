@@ -1,8 +1,0 @@
------------------------------------------------------------------------------
-Date : 15.06.2022 23:47:37
-
-System.InvalidOperationException
-Message : No recipients have been specified.
-StackTrace :    at MailKit.Net.Smtp.SmtpClient.Send(FormatOptions options, MimeMessage message, CancellationToken cancellationToken, ITransferProgress progress)
-   at MailKit.MailTransport.Send(MimeMessage message, CancellationToken cancellationToken, ITransferProgress progress)
-   at MailSender.Services.MailService.SendMail(List`1 getExchangeData, MailViewModel mails) in C:\Users\yunus\source\repos\EmailSender\MailSender\Services\MailService.cs:line 60

@@ -17,10 +17,6 @@ namespace MailSender
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
-            .UseWindowsService(opt =>
-            {
-                opt.ServiceName = "MailSenderService";
-            })
                 .ConfigureServices((hostContext, services) =>
                 {
                     services.AddSingleton<IExchangeService, ExchangeService>();
