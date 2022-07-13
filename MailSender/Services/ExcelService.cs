@@ -28,7 +28,7 @@ namespace MailSender.Services
 
         public Task<MailViewModel> ReadExcelFile()
         {
-            var pathToFile = new StringBuilder(_env.ContentRootPath + "\\MailData" + "\\mymails.xlsx").ToString();
+            var pathToFile = new StringBuilder(_env.ContentRootPath + "\\MailData" + "\\mailList.xlsx").ToString();
 
             try
             {

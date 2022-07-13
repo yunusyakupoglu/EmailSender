@@ -1,0 +1,12 @@
+-----------------------------------------------------------------------------
+Date : 13.07.2022 14:36:14
+
+System.IO.FileNotFoundException
+Message : Could not find file 'C:\Users\yunus\source\repos\EmailSender\MailSender\Template\MailTemplat.html'.
+StackTrace :    at System.IO.FileStream.ValidateFileHandle(SafeFileHandle fileHandle)
+   at System.IO.FileStream.CreateFileOpenHandle(FileMode mode, FileShare share, FileOptions options)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at System.IO.StreamReader.ValidateArgsAndOpenPath(String path, Encoding encoding, Int32 bufferSize)
+   at System.IO.StreamReader..ctor(String path)
+   at System.IO.File.OpenText(String path)
+   at MailSender.Services.MailService.SendMail(ExchangeViewModel getExchangeData, MailViewModel mails) in C:\Users\yunus\source\repos\EmailSender\MailSender\Services\MailService.cs:line 38

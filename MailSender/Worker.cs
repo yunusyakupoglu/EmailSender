@@ -47,7 +47,7 @@ namespace MailSender
                 var sendMailResponse = false;
                 bool isTimeCorrect = false;
                 var SuccessfulDate = TimeSpan.FromMinutes(10);
-                var RetryDate = TimeSpan.FromSeconds(5);
+                var RetryDate = TimeSpan.FromMinutes(1);
 
                 // Check if datetime is 7am
                 if (DateTime.Now.Hour == 7)

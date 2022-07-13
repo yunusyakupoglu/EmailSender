@@ -17,6 +17,10 @@ namespace MailSender
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
+                .UseWindowsService(options =>
+                {
+                    options.ServiceName = "Daily Exhange Mail Service";
+                })
                 .ConfigureServices((hostContext, services) =>
                 {
                     services.AddSingleton<IExchangeService, ExchangeService>();

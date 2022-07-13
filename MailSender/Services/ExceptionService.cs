@@ -20,7 +20,7 @@ namespace MailSender.Services
         public void WriteErrorFile(Exception ex)
         {
             string pathExtention = ".txt";
-            var pathToExceptionFile = new StringBuilder("C:\\EmailSender" + "\\Exceptions\\" + DateTime.Now.Day + "-" + DateTime.Now.Month + "-" + DateTime.Now.Year + "-"
+            var pathToExceptionFile = new StringBuilder(_env.ContentRootPath + "\\Exceptions\\" + DateTime.Now.Day + "-" + DateTime.Now.Month + "-" + DateTime.Now.Year + "-"
                 + DateTime.Now.Hour + "-" + DateTime.Now.Minute + "-" + "Exception" + pathExtention).ToString();
             if (!File.Exists(pathToExceptionFile))
             {
